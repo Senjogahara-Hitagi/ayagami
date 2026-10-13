@@ -9,8 +9,6 @@ Ayagami (彩紙) is a 2D puppet model loading and rendering library written in R
 
 **Ayagami is completely free software dual licensed under the MIT and Apache2 licenses**. You may use it for any purpose as long as you abide by your choice of either license, without having to pay any royalties or obtain permission from anyone. This includes any use cases, **including both games with built-in models and expandable applications that load user-provided models**.
 
-This software is developed strictly **using black-box reverse engineering only**. That means that it is a complete, from-scratch, independent implementation, and no license terms were violated during its development. **We have never and will never disassemble or decompile any proprietary software in order to develop this project**. To guarantee this, we have a strict [contributor policy](CONTRIBUTING.md).
-
 ## Demo
 
 Check out the [Web demo & model poser](https://demo.ayagami.dev)! This demo runs entirely in your browser, and your model data is not sent anywhere outside your machine. You can use it to manually pose your model (high quality screenshot feature coming soon).
@@ -74,22 +72,6 @@ No docs yet, so here's a quick overview:
 * `ayagami::driver`: An API that builds on the `core` traits to compute model positions and deformations for a given pose. Essentially: model and parameters in, deformed ArtMeshes (draw objects) out. The core algorithms that implement the behavior of the models live here, including subtle ones like deformer interpolation/extrapolation.
 * `ayagami-render`: A reference model renderer implementation, intended to be high quality, cross platform, efficient for desktop/VTubing use cases, and easy to integrate anywhere that `wgpu` can run on. This implementation is suitable for engines that can run arbitrary GPU rendering code inside their render loop, or it can also be used to draw into an offscreen texture. Users who need more advanced features such as custom shaders, additional texture layers (emissive, normals, etc.), between-layer item rendering, effects, or tight integration into an existing engine are encouraged to use this renderer as a reference and either fork it or develop their own, using the `driver` API.
 * `ayagami-demo`: A demo and test app for the rest of the stack, built using egui. This is what runs on [demo.ayagami.dev](https://demo.ayagami.dev). It lets you load a model, pan/zoom freely, and adjust all parameter values.
-
-## Contributing
-
-PRs are not currently accepted, as the codebase is in quick flux and we want to make sure the reverse engineering work is [completed entirely in public and with full transparency](https://www.youtube.com/watch?v=eEa0-wt1SqE&list=PL8S0yfRexZULmW9fhF2gcMsuPBi6jeVhZ). However, if you have feature requests or bug reports, please feel free to file an issue!
-
-## FAQ
-
-### Is this legal?
-
-Yes. As Ayagami is completely original software, it is just like any other piece of open source software.
-
-### How did you pull this off?
-
-Black-box reverse engineering! That means looking at Live2D model (MOC3) files with a hex editor to understand their structure, and then manually creating test models and feeding them into a test application (in this case, VTube Studio) to observe how they render.
-
-See also Lina's [Live2D Reverse Engineering FAQ](https://lina.yt/moc3faq).
 
 ## Legal & Trademark Notice
 
